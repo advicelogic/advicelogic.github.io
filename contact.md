@@ -4,4 +4,4 @@ title: Contact
 permalink: /contact/
 ---
 
-Our imprint will come soon.
+contact@advicelogic.com

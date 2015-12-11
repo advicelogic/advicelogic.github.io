@@ -7,14 +7,14 @@
 
 # Site settings
 title: advicelogic
-email: mohamed@advicelogic.com
+email:
 description: > # this means to ignore newlines until "baseurl:"
   We build, run and provide services based on information technology
   for financial advisers.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://advicelogic.github.io" # the base hostname & protocol for your site
-twitter_username: mohamedahdach
-github_username:  ahdach
+twitter_username: advice_logic
+github_username:
 
 # Build settings
 markdown: kramdown
