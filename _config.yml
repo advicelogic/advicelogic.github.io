@@ -16,4 +16,4 @@ twitter_username: advice_logic
 github_username:
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
