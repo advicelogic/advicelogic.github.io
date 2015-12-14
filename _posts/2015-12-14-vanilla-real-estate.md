@@ -22,7 +22,8 @@ Well. Lets define a process for the NOI with:
 * an annual drift of 13.75%
 * an annual volatility of 10%
 
-And now, build an [input file] (https://github.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_income_risk.xlsx)
+And now, build an [input file]
+(https://github.com/advicelogic/vanilla-cash/raw/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_rental_income_risk.xlsx)
 with the above assumptions.
 
 Running the model on [airr] (http://app.airr.io) provides the following statistics:
