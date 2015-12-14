@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vanilla Real estate"
+title:  "Using Vanilla cash for real estate risk"
 categories: advicelogic news
 ---
 
