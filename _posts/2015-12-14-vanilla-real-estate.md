@@ -17,9 +17,9 @@ With a cost of capital of say 10%, we have a net present value, at 0, of $53.6M.
 
 What about the *rental income risk*?
 Well. Lets define a process for the NOI with:
-* an initial value, at 0, of 1
-* an annual drift of 13.75%
-* an annual volatility of 10%
+ * an initial value, at 0, of 1
+ * an annual drift of 13.75%
+ * an annual volatility of 10%
 
 And now, build an [input file] (https://raw.githubusercontent.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_income_risk.xlsx)
 with the above assumptions.
@@ -30,6 +30,7 @@ Running the model on [airr] (http://app.airr.io) provides the following statisti
 |---------------------------|------:|
 | average net present value |  53.6 |
 | 1 year 1% Value at Risk   | -0.22 |
+<sup>(numbers are in $ M)</sup>
 
 Taking into account risk produces an expected net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
@@ -38,9 +39,9 @@ Detailed output for this run is can be downloaded [here] (https://raw.githubuser
 
 What about *yield risk*?
 Lets define a different process. For capturing yield risk:
-* an initial value, at 0, of 2.66% (which produces the original $78.9M value)
-* an annual drift of -2%
-* an annual volatility of 5%
+ * an initial value, at 0, of 2.66% (which produces the original $78.9M value)
+ * an annual drift of -2%
+ * an annual volatility of 5%
 
 And now, lets build another [input file] (https://raw.githubusercontent.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_yield_risk.xlsx) with the above assumptions.
 
@@ -50,6 +51,7 @@ This time, running the model provides the following statistics:
 |---------------------------|-------|
 | average net present value |  59.5 |
 | 1 year 1% Value at Risk   |  -2.6 |
+<sup>(numbers are in $ M)</sup>
 
 Taking into account the yield risk produces an expected net present value of
 $59.5M. This is not a surprise given the favorable outlook we gave to the
