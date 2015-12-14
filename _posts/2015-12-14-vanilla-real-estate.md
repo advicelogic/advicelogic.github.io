@@ -37,7 +37,7 @@ Running the model on [airr] (http://app.airr.io) provides the following statisti
 Taking into account risk produces an expected net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
 us that 99% of the time, I would not lose more that $220k during the first year.
-Detailed output for this run is can be downloaded [here] (https://raw.githubusercontent.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_income_risk_output.xlsx)
+Detailed output for this run is can be downloaded [here] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_rental_income_risk_output.xlsx?raw=true)
 
 What about *yield risk*?
 Lets define a different process. For capturing yield risk:
@@ -46,7 +46,7 @@ Lets define a different process. For capturing yield risk:
 * an annual drift of -2%
 * an annual volatility of 5%
 
-And now, lets build another [input file] (https://raw.githubusercontent.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_yield_risk.xlsx) with the above assumptions.
+And now, lets build another [input file] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_yield_risk.xlsx?raw=true) with the above assumptions.
 
 This time, running the model provides the following statistics:
 
@@ -60,7 +60,7 @@ Taking into account the yield risk produces an expected net present value of
 $59.5M. This is not a surprise given the favorable outlook we gave to the
 yield evolutions (negative drift).
 However, this time, the investment is exposed to higher losses through that factor.
-Indeed, simulation paths, that can be looked at [here] (https://raw.githubusercontent.com/advicelogic/vanilla-cash/master/exapmples/vanilla_real_estate_rental_income_risk_output.xlsx) tell now that the net present value is now at risk for $2.6M.
+Indeed, simulation paths, that can be looked at [here] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_yield_risk_output.xlsx?raw=true) tell now that the net present value is now at risk for $2.6M.
 
 *What about combining these two risks?*
 That will be for a next post.:-)
