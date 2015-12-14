@@ -16,4 +16,7 @@ twitter_username: advice_logic
 github_username:
 
 # Build settings
-markdown: redcarpet
+markdown: kramdown
+
+kramdown:
+  input: GFM
