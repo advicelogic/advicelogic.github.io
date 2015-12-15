@@ -5,7 +5,7 @@ categories: advicelogic news
 ---
 
 Friday, 5 pm, local time.
-Probably not the best time to release, a first release.
-We'll start with a simple risk model to capture investment values at risk.
+Probably not the best time for an announcement...
 
-The model is [here](https://github.com/advicelogic/vanilla-cash/tree/v1.0.0-alpha).
+But here it is. [Vanilla cash][here](http://advicelogic.github.io/vanilla-cash/):
+"A simple risk model to capture investment values at risk."
