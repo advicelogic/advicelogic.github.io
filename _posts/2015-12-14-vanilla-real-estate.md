@@ -3,8 +3,19 @@ layout: post
 title:  "Using Vanilla cash for real estate risk"
 categories: advicelogic news
 ---
+This post is about using Vanilla cash for real estate risk management.   
+Vanilla cash is a simulation tool for modeling uncertain cash flows. Lets see how
+we can use it to quantify risks from a real estate investment.
 
-Let's start with a simple real estate financial projection.
+First things first: an initial cash flow projection.   
+We'll consider a very simple projection made of three *important* real estate
+cash flows:
+
+* NOI: the net operating income
+* Capital expenses
+* Terminal Value
+
+Consider the following numbers:
 
 |             Year |    1 |   2 |    3 |   4 |    5 |
 |------------------|-----:|----:|-----:|----:|-----:|
@@ -13,10 +24,14 @@ Let's start with a simple real estate financial projection.
 | Terminal value   |      |     |      |     | 78.9 |
 <sup>(numbers are in $ M)</sup>
 
-With a cost of capital of say 10%, we have a net present value, at 0, of $53.6M.
+With a [cost of capital](https://en.wikipedia.org/wiki/Cost_of_capital) of say 10%,
+we have a [net present value](https://en.wikipedia.org/wiki/Net_present_value),
+at 0, of $53.6M.
 
 What about the *rental income risk*?
-Well. Lets define a process for the NOI with:
+Well. Lets include uncertainty by defining a [stochastic process](https://en.wikipedia.org/wiki/Stochastic_process)
+for the NOI. Currently, Vanilla cash only supports the classic [Geometric Brownian motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion).
+We could give it a try with the following parameters:
 
 * an initial value, at 0, of 1
 * an annual drift of 13.75%
@@ -34,13 +49,13 @@ Running the model on [airr] (http://app.airr.io) provides the following statisti
 | 1 year 1% Value at Risk   | -0.22 |
 <sup>(numbers are in $ M)</sup>
 
-Taking into account risk produces an expected net present value of $53.6M.
+Taking into account risk produces an average net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
 us that 99% of the time, I would not lose more that $220k during the first year.
 Detailed output for this run is can be downloaded [here] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_rental_income_risk_output.xlsx?raw=true)
 
 What about *yield risk*?
-Lets define a different process. For capturing yield risk:
+Lets define a different process for capturing yield risk:
 
 * an initial value, at 0, of 2.66% (which produces the original $78.9M value)
 * an annual drift of -2%
