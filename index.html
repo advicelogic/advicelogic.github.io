@@ -11,13 +11,21 @@ carousel:
   <img src="/images/slider/frontpageslideshow.003_0.png">
   <br><br><br><br><br><br>
 
-  <ul >
-      {% for post in site.posts limit 4 %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-          {{ post.content | strip_html | truncatewords:75}}
-  </em></strong>  <!-- This is what does the task-->
-  <br>
-              <a href="{{ post.url }}">Read more...</a><br><br>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+      <br>
+      {{ post.content | strip_html | truncatewords:75}}
+      </em></strong>  <!-- This is what does the task-->
+      <br>
+      <a href="{{ post.url }}">Read more...</a><br><br>
+
       {% endfor %}
   </ul>
 
