@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "Using Vanilla cash for real estate risk"
-categories: advicelogic news
+title:  "Using EVCA Fund growth method for real estate risk"
+categories: airr news
 ---
-This post is about using Vanilla cash for real estate risk management.   
-Vanilla cash is a simulation tool for modeling uncertain cash flows. Lets see how
-we can use it to quantify risks from a real estate investment.
+This template deploys a risk model for Value at Risk metrics applied to
+illiquid assets. It uses the EVCA Fund growth method.
+
+Lets see how we can use it to quantify risks from a real estate investment.
 
 First things first: an initial cash flow projection.   
 We'll consider a very simple projection made of three *important* real estate
@@ -37,8 +38,8 @@ We could give it a try with the following parameters:
 * an annual drift of 13.75%
 * an annual volatility of 10%
 
-And now, build an [input file]
-(https://github.com/advicelogic/vanilla-cash/raw/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_rental_income_risk.xlsx)
+And now, build an [config file]
+(https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_rental_income_risk.xlsx?raw=true)
 with the above assumptions.
 
 Running the model on [airr] (http://app.airr.io) provides the following statistics:
@@ -52,7 +53,7 @@ Running the model on [airr] (http://app.airr.io) provides the following statisti
 Taking into account risk produces an average net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
 us that 99% of the time, I would not lose more that $220k during the first year.
-Detailed output for this run is can be downloaded [here] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_rental_income_risk_output.xlsx?raw=true)
+Detailed output for this run is can be downloaded [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_rental_income_risk_output.xlsx?raw=true)
 
 What about *yield risk*?
 Lets define a different process for capturing yield risk:
@@ -61,7 +62,7 @@ Lets define a different process for capturing yield risk:
 * an annual drift of -2%
 * an annual volatility of 5%
 
-And now, lets build another [input file] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_yield_risk.xlsx?raw=true) with the above assumptions.
+And now, lets build another [input file] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_yield_risk.xlsx?raw=true) with the above assumptions.
 
 This time, running the model provides the following statistics:
 
@@ -75,7 +76,7 @@ Taking into account the yield risk produces an expected net present value of
 $59.5M. This is not a surprise given the favorable outlook we gave to the
 yield evolutions (negative drift).
 However, this time, the investment is exposed to higher losses through that factor.
-Indeed, simulation paths, that can be looked at [here] (https://github.com/advicelogic/vanilla-cash/blob/6dc7b94cb9cf7094bf46e70a89e97b09a68805f7/examples/vanilla_real_estate_yield_risk_output.xlsx?raw=true) tell now that the net present value is now at risk for $2.6M.
+Indeed, simulation paths, that can be looked at [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_yield_risk_output.xlsx?raw=true) tell now that the net present value is now at risk for $2.6M.
 
 *What about combining these two risks?*
 That will be for a next post.:-)
