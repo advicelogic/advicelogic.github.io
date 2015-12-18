@@ -50,6 +50,7 @@ We could give it a try with the following parameters:
 |-------:|--------------:|-------:|------:|----------:|
 | noi_bm |             1 | 0.1375 |  0.06 |      0.01 |
 
+In the engines output you'll find a tab with a sample of this *noi_bm* process.
 
 ### Cash Flows
 
@@ -59,9 +60,11 @@ We have to tell the engine that the NOI component should take, at the first 5 an
 |                  |   y1 |  y2 |   y3 |  y4 |   y5 |
 |------------------|-----:|----:|-----:|----:|-----:|
 | NOI              |  noi_bm |  noi_bm |  noi_bm |  noi_bm |   noi_bm |
-| Capital expenses | 0.25 |     | 0.35 |     |    1 |
+| Capital expenses | -0.25 |     | -0.35 |     |    -1 |
 | Terminal value   |      |     |      |     | 78.9 |
 
+Actualy, the risk engine understands more complicated cash flow expressions.
+Like *noi_bm-0.25*, or *5/noi_bm*, but this will be for another post.
 
 ### Discount Rate
 
