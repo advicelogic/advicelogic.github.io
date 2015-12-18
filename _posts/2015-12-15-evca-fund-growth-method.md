@@ -90,4 +90,5 @@ Running the model on [airr] (http://app.airr.io) provides the following statisti
 Taking into account risk produces an average net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
 us that 99% of the time, the investment would not lose more that $250k after 1 year.
-Detailed output for this run can be downloaded [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/real_estate_rental_income_risk_output.xlsx?raw=true)
+
+Detailed output for this run can be downloaded [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/real_estate_rental_income_risk_output.xlsx?raw=true).
