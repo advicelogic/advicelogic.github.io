@@ -46,9 +46,10 @@ Well. Lets include uncertainty by defining a [stochastic process](https://en.wik
 for the NOI. Currently, EVCA Fund growth method only supports the [Geometric Brownian motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion).
 We could give it a try with the following parameters:
 
-|        | initial value |  drift | sigma | time step |
-|-------:|--------------:|-------:|------:|----------:|
-| noi_bm |             1 | 0.1375 |  0.06 |      0.01 |
+|        | initial value |  drift | sigma |
+|-------:|--------------:|-------:|------:|
+| noi_bm |             1 | 0.1375 |  0.06 |
+<sup>(drift and sigma are the ones frm the [classic GBM](https://github.com/airr-templates/brown-one/wiki/Model-config-variables) )</sup>
 
 In the engines output you'll find a tab with a sample of this *noi_bm* process.
 
