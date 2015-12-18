@@ -3,8 +3,13 @@ layout: post
 title:  "Using EVCA Fund growth method for real estate risk"
 categories: airr news
 ---
-This template deploys a risk model for Value at Risk metrics applied to
-illiquid assets. It uses the EVCA Fund growth method.
+Few days ago, we announced the release of our first risk model: Brown-one.
+
+It was still hot out of dev, but we wanted to put it out there. With no more
+explanations. Just wanted it out. :-)
+
+Today, we'll show you how one could use this model to produce Value at Risk
+metrics applied to illiquid assets.
 
 Lets see how we can use it to quantify risks from a real estate investment.
 
@@ -18,10 +23,10 @@ cash flows:
 
 Consider the following numbers:
 
-|             Year |    1 |   2 |    3 |   4 |    5 |
+|                  |   y1 |  y2 |   y3 |  y4 |   y5 |
 |------------------|-----:|----:|-----:|----:|-----:|
 | NOI              |  1.1 | 1.3 |  1.6 | 1.8 |  2.1 |
-| Capital expenses | 0.25 |     | 0.35 |     |    1 |
+| Capital expenses | -0.25 |     | -0.35 |     |    -1 |
 | Terminal value   |      |     |      |     | 78.9 |
 <sup>(numbers are in $ M)</sup>
 
@@ -30,55 +35,55 @@ we have a [net present value](https://en.wikipedia.org/wiki/Net_present_value),
 at 0, of $53.6M.
 
 What about the *rental income risk*?
+
+After downloading the [template](), we can give it a more specific name. What about *real_estate_rental_risk.xlsx*.
+
+There are 3 tabs.
+
+### Risk Factor
+
 Well. Lets include uncertainty by defining a [stochastic process](https://en.wikipedia.org/wiki/Stochastic_process)
-for the NOI. Currently, Vanilla cash only supports the classic [Geometric Brownian motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion).
+for the NOI. Currently, EVCA Fund growth method only supports the [Geometric Brownian motion](https://en.wikipedia.org/wiki/Geometric_Brownian_motion).
 We could give it a try with the following parameters:
 
-* an initial value, at 0, of 1
-* an annual drift of 13.75%
-* an annual volatility of 10%
+|        | initial value |  drift | sigma | time step |
+|-------:|--------------:|-------:|------:|----------:|
+| noi_bm |             1 | 0.1375 |  0.06 |      0.01 |
 
-And now, build an [config file]
-(https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_rental_income_risk.xlsx?raw=true)
+
+### Cash Flows
+
+The Cash flows are the financial objects the risk engine will simulate. We have to slightly adapt our financial projection.
+We have to tell the engine that the NOI component should take, at the first 5 annual steps, the corresponding value of the risk factor.
+
+|                  |   y1 |  y2 |   y3 |  y4 |   y5 |
+|------------------|-----:|----:|-----:|----:|-----:|
+| NOI              |  noi_bm |  noi_bm |  noi_bm |  noi_bm |   noi_bm |
+| Capital expenses | 0.25 |     | 0.35 |     |    1 |
+| Terminal value   |      |     |      |     | 78.9 |
+
+
+### Discount Rate
+
+We'll use our cost of capital of 10%
+
+| short rate |
+|-----------:|
+|       0.10 |
+
+The resulting config file should look like [this]
+(https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/real_estate_rental_income_risk.xlsx?raw=true)
 with the above assumptions.
+
+
 
 Running the model on [airr] (http://app.airr.io) provides the following statistics:
 
-| Statistics                |       |
-|---------------------------|------:|
-| average net present value |  53.6 |
-| 1 year 1% Value at Risk   | -0.22 |
-<sup>(numbers are in $ M)</sup>
+| average net present value | 1 year 1% Value at Risk |
+|--------------------------:|------------------------:|
+|                      53.6 |                   -0.25 |
 
 Taking into account risk produces an average net present value of $53.6M.
 But, having histograms and distributions, we have risk metrics. And, they tell
-us that 99% of the time, I would not lose more that $220k during the first year.
-Detailed output for this run is can be downloaded [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_rental_income_risk_output.xlsx?raw=true)
-
-What about *yield risk*?
-Lets define a different process for capturing yield risk:
-
-* an initial value, at 0, of 2.66% (which produces the original $78.9M value)
-* an annual drift of -2%
-* an annual volatility of 5%
-
-And now, lets build another [input file] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_yield_risk.xlsx?raw=true) with the above assumptions.
-
-This time, running the model provides the following statistics:
-
-| Statistics                |       |
-|---------------------------|-------|
-| average net present value |  59.5 |
-| 1 year 1% Value at Risk   |  -2.6 |
-<sup>(numbers are in $ M)</sup>
-
-Taking into account the yield risk produces an expected net present value of
-$59.5M. This is not a surprise given the favorable outlook we gave to the
-yield evolutions (negative drift).
-However, this time, the investment is exposed to higher losses through that factor.
-Indeed, simulation paths, that can be looked at [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/vanilla_real_estate_yield_risk_output.xlsx?raw=true) tell now that the net present value is now at risk for $2.6M.
-
-*What about combining these two risks?*
-That will be for a next post.:-)
-
-You can find these examples input and output files in the [Vanilla cash repo]
+us that 99% of the time, the investment would not lose more that $250k after 1 year.
+Detailed output for this run can be downloaded [here] (https://github.com/airr-templates/evca-fund-growth-method/blob/master/examples/real_estate_rental_income_risk_output.xlsx?raw=true)
