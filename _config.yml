@@ -19,3 +19,6 @@ github_username:
 markdown: redcarpet
 redcarpet:
   extensions: ["tables"]
+
+gems:
+  - jekyll-gist
