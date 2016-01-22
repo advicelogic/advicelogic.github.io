@@ -1,0 +1,33 @@
+---
+layout: default
+carousel:
+  - image: /images/slider/frontpageslideshow.001_0.png
+  - image: /images/slider/frontpageslideshow.002_0.png
+  - image: /images/slider/frontpageslideshow.003_0.png
+---
+
+<div class="home">
+
+  <h1>Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+      <br>
+      {{ post.content | truncatewords:75}}
+      </em></strong>  <!-- This is what does the task-->
+      <br>
+      <a href="{{ post.url }}">Read more...</a><br><br>
+
+      {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
