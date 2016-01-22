@@ -1,10 +1,8 @@
 ---
 layout: post
-title:  "First release"
+title:  "First"
 categories: airr news
 ---
-
-Luxembourg, Friday December 12, 5 pm, local time.   
 
 Probably not the best time for an announcement...   
 
